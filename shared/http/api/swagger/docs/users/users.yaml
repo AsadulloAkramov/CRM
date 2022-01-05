@@ -1,0 +1,129 @@
+/users/avatar:
+  post:
+    security:
+      - Bearer: []
+    summary: POST User Avatar 
+    tags:
+      - Users
+    requestBody:
+      desciption: Set User Avatar 
+      required: true
+      content:
+        multipart/form-data:
+          schema:
+            type: object
+            properties:
+              id:
+                type: integer
+              avatar:
+                type: string
+                format: binary
+              token: 
+                type: string
+    responses:
+      '200':
+        description: Successfully saved image!
+        content:
+          application/json:
+            schema:
+              type: string
+      '400':
+        description: Bad request!
+        content:
+          application/json:
+            schema:
+              type: string
+/users/avatar/:userId:
+  get: 
+    security:
+      - Bearer: []
+    summary: Get User Avatar 
+    tags:
+      - Users
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+      - in: path
+        name: token
+        schema:
+          type: string
+        required: true
+        description: ID of the user avatar id to get. Token
+    responses:
+      '200':
+        description: Successfully saved image!
+        content:
+          multipart/form-data:
+            poster:
+              type: string
+              format: binary
+      '400':
+        description: Bad request!
+        content:
+          application/json:
+            schema:
+              type: string
+  put: 
+    security:
+      - Bearer: []
+    summary: Update User Avatar 
+    tags:
+      - Users
+    requestBody:
+      desciption: Update User Image
+      required: true
+      content:
+        multipart/form-data:
+          schema:
+            type: object
+            properties:
+              id:
+                type: integer
+              avatar:
+                type: string
+                format: binary
+    responses:
+      '200':
+        description: Successfully saved update!
+        content:
+          application/json:
+            schema:
+              type: string
+      '400':
+        description: Bad request!
+        content:
+          application/json:
+            schema:
+              type: string         
+  delete: 
+    security:
+      - Bearer: []
+    summary: Delete User Avatar 
+    tags:
+      - Users
+    requestBody:
+      desciption: Delter User Image
+      required: true
+      content:
+        multipart/form-data:
+          schema:
+            type: object
+            properties:
+              id:
+                type: integer
+    responses:
+      '200':
+        description: Successfully saved deleted!
+        content:
+          application/json:
+            schema:
+              type: string
+      '400':
+        description: Bad request!
+        content:
+          application/json:
+            schema:
+              type: string                       

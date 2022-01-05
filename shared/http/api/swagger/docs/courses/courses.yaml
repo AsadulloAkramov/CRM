@@ -1,0 +1,194 @@
+/courses/categories-image:
+  post:
+    security:
+      - Bearer: []
+    summary: POST Course Category Image
+    tags:
+      - Course category
+    requestBody:
+      desciption: Set Course Category Image
+      required: true
+      content:
+        multipart/form-data:
+          schema:
+            type: object
+            properties:
+              id:
+                type: integer
+              poster:
+                type: string
+                format: binary
+    responses:
+      '200':
+        description: Successfully saved image!
+        content:
+          application/json:
+            schema:
+              type: string
+      '400':
+        description: Bad request!
+        content:
+          application/json:
+            schema:
+              type: string
+/courses/categories-image/:categoryId/:token:
+  get:
+    summary: GET Course Category Image
+    tags:
+      - Course category
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+      - in: path
+        name: token
+        schema:
+          type: string
+        required: true
+        description: ID of the course category id to get. Token
+    responses:
+      '200':
+        description: Successfully saved image!
+        content:
+          multipart/form-data:
+            poster:
+              type: string
+              format: binary
+      '400':
+        description: Bad request!
+        content:
+          application/json:
+            schema:
+              type: string
+/courses/categories-image/:categoryId:
+  put:
+    security:
+      - Bearer: []
+    summary: PUT Course Category Image
+    tags:
+      - Course category
+    requestBody:
+      desciption: Update Course Category Image
+      required: true
+      content:
+        multipart/form-data:
+          schema:
+            type: object
+            properties:
+              id:
+                type: integer
+              poster:
+                type: string
+                format: binary
+    responses:
+      '200':
+        description: Successfully saved update!
+        content:
+          application/json:
+            schema:
+              type: string
+      '400':
+        description: Bad request!
+        content:
+          application/json:
+            schema:
+              type: string
+/courses/image:
+  post:
+    security:
+      - Bearer: []
+    summary: POST Course Image
+    tags:
+      - Course
+    requestBody:
+      desciption: Set Course Image
+      required: true
+      content:
+        multipart/form-data:
+          schema:
+            type: object
+            properties:
+              id:
+                type: integer
+              poster:
+                type: string
+                format: binary
+    responses:
+      '200':
+        description: Successfully saved image!
+        content:
+          application/json:
+            schema:
+              type: string
+      '400':
+        description: Bad request!
+        content:
+          application/json:
+            schema:
+              type: string
+/courses/image/:courseId/:token:
+  get:
+    summary: GET Course Image
+    tags:
+      - Course
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+      - in: path
+        name: token
+        schema:
+          type: string
+        required: true
+        description: ID of the course category id to get. Token
+    responses:
+      '200':
+        description: Successfully saved image!
+        content:
+          multipart/form-data:
+            poster:
+              type: string
+              format: binary
+      '400':
+        description: Bad request!
+        content:
+          application/json:
+            schema:
+              type: string
+/courses/image/:courseId:
+  put:
+    security:
+      - Bearer: []
+    summary: PUT Course  Image
+    tags:
+      - Course
+    requestBody:
+      desciption: Update Course  Image
+      required: true
+      content:
+        multipart/form-data:
+          schema:
+            type: object
+            properties:
+              id:
+                type: integer
+              poster:
+                type: string
+                format: binary
+    responses:
+      '200':
+        description: Successfully saved update!
+        content:
+          application/json:
+            schema:
+              type: string
+      '400':
+        description: Bad request!
+        content:
+          application/json:
+            schema:
+              type: string

@@ -1,0 +1,89 @@
+/teacher-salary/salary-file:
+  post: 
+    security:
+      - Bearer: []
+    summary: POST Teacher Salary
+    tags: 
+      - Teacher Salary
+    requestBody:
+      desciption: Set Teacher Salary 
+      required: true
+      content:
+        multipart/form-data:
+          schema:
+            type: object
+            properties:
+              id: 
+                type: integer
+              file: 
+                type: string
+                format: binary
+              token: 
+                type: string
+    responses:
+      '200':
+        description: File is saved!
+        content:
+          application/json:
+            schema:
+              type: string
+      '400':
+        description: Bad request!
+        content:
+          application/json:
+            schema:
+              type: string
+/teacher-salary/salaries/:id:
+  get: 
+    security:
+      - Bearer: []
+    summary: GET Teacher Salary
+    tags: 
+      - Teacher Salary
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+      - in: path
+        name: token
+        schema:
+          type: string
+        required: true
+        description: ID of the teacher salary id to get. Token
+/teacher-salary/salary-file/:teacherSalaryId:
+  put: 
+    security:
+      - Bearer: []
+    summary: UPDATE Teacher Salary
+    tags: 
+      - Teacher Salary
+    requestBody:
+      desciption: Update Teacher Salary 
+      required: true
+      content:
+        multipart/form-data:
+          schema:
+            type: object
+            properties:
+              id: 
+                type: integer
+              file: 
+                type: string
+                format: binary
+              token: 
+                type: string
+      responses:
+      '200':
+        description: File is saved!
+        content:
+          application/json:
+            schema:
+              type: string
+      '400':
+        description: Bad request!
+        content:
+          application/json:
+            schema:
+              type: string

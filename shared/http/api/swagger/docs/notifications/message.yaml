@@ -1,0 +1,25 @@
+/attandances:
+  get:
+    summary: All Notificaitons
+    tags:
+      - Notificaitons
+    responses:
+      "200":
+        description: The list of attandances
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  receiverId:
+                    type: integer
+                  lessonId:
+                    type: integer
+                  createdAt:
+                    type: string
+                  updatedAt:
+                    type: string
